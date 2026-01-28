@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Yannick Jérôme – Digitales Wallet</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    header { border-bottom: 1px solid #ddd; margin-bottom: 30px; }
+    h1, h2 { font-weight: 600; }
+    ul.skills { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; }
+    ul.skills li { background: #f0f0f0; padding: 5px 10px; border-radius: 4px; }
+    section { margin-bottom: 20px; }
+    a { color: #0066cc; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<script>
+  // Einfaches Passwort: nur für kleine Hürde
+  const password = prompt("Bitte Passwort eingeben:");
+  if(password !== "meinpasswort") { document.body.innerHTML = "<h2>Kein Zugriff</h2>"; }
+</script>
+
+<header>
+  <h1>Yannick Jérôme</h1>
+  <p>Digitales Profil / Wallet</p>
+</header>
+
+<section>
+  <h2>Über mich</h2>
+  <p>Kurzbeschreibung deiner Person, Interessen, Schwerpunkte.</p>
+</section>
+
+<section>
+  <h2>Beruflicher Werdegang</h2>
+  <ul>
+    <li><strong>2023–heute:</strong> Position / Unternehmen</li>
+    <li><strong>2020–2023:</strong> Position / Unternehmen</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <ul class="skills">
+    <li>Strategie</li>
+    <li>Technologie</li>
+    <li>Kommunikation</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Downloads</h2>
+  <a href="lebenslauf.pdf" target="_blank">Lebenslauf (PDF)</a>
+</section>
+
+</body>
+</html>
