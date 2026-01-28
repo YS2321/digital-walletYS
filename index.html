@@ -279,93 +279,9 @@
     .meta-k{ color: var(--muted); font-size: 12px; font-weight: 700; }
     .meta-v{ margin-top: 6px; font-weight: 800; font-size: 13.5px; }
 
-    .profile{
-      margin:0;
-      border-radius: 18px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.55);
-      overflow:hidden;
-      position:relative;
-    }
-    @media (prefers-color-scheme: dark){
-      .profile{ background: rgba(255,255,255,.05); }
-    }
-    .profile img{
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.02);
-      transition: transform .45s ease;
-    }
-    .profile:hover img{ transform: scale(1.06); }
-    .profile.fallback{
-      height: 250px;
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(800px 360px at 30% 20%, rgba(10,132,255,.28), transparent 55%),
-        radial-gradient(700px 340px at 80% 30%, rgba(58,108,255,.22), transparent 55%),
-        rgba(255,255,255,.45);
-    }
-    @media (prefers-color-scheme: dark){
-      .profile.fallback{ background:
-        radial-gradient(800px 360px at 30% 20%, rgba(10,132,255,.22), transparent 55%),
-        radial-gradient(700px 340px at 80% 30%, rgba(58,108,255,.18), transparent 55%),
-        rgba(255,255,255,.04);
-      }
-    }
-    .fallback-initials{
-      display:none;
-      width: 84px; height: 84px; border-radius: 26px;
-      background: linear-gradient(145deg, rgba(10,132,255,.92), rgba(58,108,255,.82));
-      color:white;
-      display:grid; place-items:center;
-      font-weight: 900;
-      font-size: 28px;
-      box-shadow: 0 18px 40px rgba(10,132,255,.22);
-    }
-    .profile.fallback .fallback-initials{ display:grid; }
-    figcaption{
-      padding: 10px 12px;
-      font-size: 12px;
-      color: var(--muted);
-      border-top:1px solid var(--line);
-    }
     .muted{ color: var(--muted); }
     .mono{ font-family: var(--mono); }
 
-    .card{
-      border:1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,.55);
-      padding: 16px;
-    }
-    @media (prefers-color-scheme: dark){
-      .card{ background: rgba(255,255,255,.05); }
-    }
-    .card-title{ font-weight: 900; letter-spacing: .2px; }
-    .card-text{ margin: 8px 0 0; color: var(--muted); line-height:1.55; font-size: 14px; }
-
-    .hover{ transition: transform .18s ease, box-shadow .18s ease; }
-    .hover:hover{ transform: translateY(-2px); box-shadow: 0 18px 50px rgba(0,0,0,.12); }
-
-    .pill{
-      display:inline-flex; align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.55);
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--fg);
-      margin-top: 10px;
-    }
-    @media (prefers-color-scheme: dark){
-      .pill{ background: rgba(255,255,255,.06); }
-    }
-
-    .content{ margin-top: 18px; }
     .section{
       margin-top: 18px;
       background: var(--card);
@@ -422,7 +338,6 @@
     @media (prefers-color-scheme: dark){
       #skillSearch{ background: rgba(255,255,255,.06); }
     }
-    .skill-groups{ display:grid; gap: 12px; }
     .skill-group{
       border:1px solid var(--line);
       border-radius: 18px;
@@ -451,42 +366,6 @@
     .tag:hover{ transform: translateY(-1px); }
     .tag-static{ cursor: default; }
 
-    .projects{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    @media (max-width: 980px){ .projects{ grid-template-columns: 1fr; } }
-    .project{ padding: 0; overflow:hidden; }
-    .p-img{ width: 100%; height: 168px; object-fit: cover; display:block; }
-    .p-body{ padding: 16px; }
-    .p-meta{ margin-top: 10px; display:flex; gap:8px; flex-wrap:wrap; }
-
-    .contact{ margin-top: 12px; }
-    .contact-row{ display:flex; justify-content:space-between; gap:12px; margin-top: 12px; }
-    .contact-k{ color: var(--muted); font-weight: 800; font-size: 12px; width: 86px; }
-    .contact-v{ font-weight: 800; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .icon-btn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.60);
-      color: var(--fg);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-weight: 900;
-      cursor:pointer;
-      transition: transform .15s ease;
-    }
-    @media (prefers-color-scheme: dark){
-      .icon-btn{ background: rgba(255,255,255,.06); }
-    }
-    .icon-btn:hover{ transform: translateY(-1px); }
-    .note{ margin: 12px 0 0; color: var(--muted); font-size: 12.5px; line-height:1.45; }
-
-    .footer{
-      margin-top: 18px;
-      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-      padding: 16px 6px 0;
-    }
-    .footer-links{ display:flex; gap:12px; flex-wrap:wrap; }
-    .footer a{ color: var(--muted); font-weight: 800; font-size: 13px; }
-    .footer a:hover{ color: var(--fg); }
-
     .toTop{
       position: fixed;
       right: 18px;
@@ -512,7 +391,6 @@
     .reveal{ opacity:0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.in{ opacity:1; transform: translateY(0); }
 
-    /* Print */
     @media print{
       .topbar, .toTop, .chip, #btnLock { display:none !important; }
       body{ background:white; }
@@ -522,14 +400,14 @@
 </head>
 
 <body>
-  <!-- LOCK UI (only thing visible before decrypt) -->
+  <!-- LOCK UI (only thing visible before unlock) -->
   <div class="lock-wrap" id="lockWrap" aria-label="Geschützte Seite">
     <div class="lock" id="lockCard">
       <div class="lock-top">
         <div class="lock-badge">YS</div>
         <div>
           <p class="lock-title">Private Ansicht — Zugang erforderlich</p>
-          <p class="lock-sub">Diese Seite entschlüsselt Inhalte erst nach korrektem Passwort. Ohne Passwort bleiben alle CV-Daten verborgen.</p>
+          <p class="lock-sub">Ohne korrektes Passwort wird hier nichts gerendert. Kein DOM-Leak, kein „Abbrechen-Bypass“.</p>
         </div>
       </div>
 
@@ -551,43 +429,269 @@
       </div>
 
       <div class="hint">
-        <strong>Datenschutz-Hinweis:</strong> Inhalte werden clientseitig entschlüsselt (0-€-Setup auf GitHub Pages).
-        Für „harte“ serverseitige Auth (z. B. E-Mail-Login) ist Cloudflare Access eine 0-€-Option. :contentReference[oaicite:1]{index=1}
+        <strong>Hinweis:</strong> Das ist eine clientseitige Zugangshürde (GitHub Pages / 0€-Setup). Inhalte werden erst nach erfolgreichem Unlock in den DOM injiziert.
       </div>
     </div>
   </div>
 
-  <!-- Decrypted content host -->
+  <!-- Content host (empty until unlock) -->
   <div id="appHost"></div>
 
+  <!-- Hidden template: NOT rendered unless unlocked -->
+  <template id="appTemplate">
+    <div class="app">
+      <div class="topbar reveal">
+        <div class="brand">
+          <div class="avatar">YS</div>
+          <div class="brand-text">
+            <div class="name">Yannick Schädlich</div>
+            <div class="role">IT & Web · Selbstständig · Private CV</div>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="chip chip-ghost" id="btnTheme" type="button">Theme</button>
+          <button class="chip" id="btnPrint" type="button">Print</button>
+          <button class="chip chip-primary" id="btnDownload" type="button">PDF</button>
+          <button class="chip" id="btnLock" type="button">Lock</button>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-left reveal">
+          <h1>Private CV — kompakt, klar, technisch.</h1>
+          <p class="lead">
+            Ich bin <strong>Yannick Schädlich</strong> (geb. 21.06.2005) und arbeite seit 06/2024 selbstständig im Bereich
+            <strong>IT & Web</strong>. Fokus: saubere Umsetzungen, zuverlässige Kommunikation und pragmatische Lösungen.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn2 btn2-primary" href="#experience">Erfahrung</a>
+            <a class="btn2" href="#education">Bildung</a>
+            <a class="btn2 btn2-secondary" href="#skills">Skills</a>
+          </div>
+
+          <div class="meta-grid">
+            <div class="meta-card">
+              <div class="meta-k">Status</div>
+              <div class="meta-v">Selbstständig (IT & Web)</div>
+            </div>
+            <div class="meta-card">
+              <div class="meta-k">Standort</div>
+              <div class="meta-v">Region Chemnitz</div>
+            </div>
+            <div class="meta-card">
+              <div class="meta-k">Dokument</div>
+              <div class="meta-v mono">Private View · <span id="year"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="skill-group" data-tags="web it tools">
+            <div class="sg-title">Quick Snapshot</div>
+            <div class="tags">
+              <div class="tag tag-static">Webseiten · Frontend</div>
+              <div class="tag tag-static">IT-Support · Setup</div>
+              <div class="tag tag-static">Hardware/Software</div>
+              <div class="tag tag-static">Saubere Dokumentation</div>
+            </div>
+          </div>
+
+          <div class="skill-group" style="margin-top:12px" data-tags="availability">
+            <div class="sg-title">Arbeitsweise</div>
+            <div class="t-desc">
+              Direkt, lösungsorientiert, “shippen statt schieben”. Wenn etwas nicht sauber ist, wird’s sauber gemacht —
+              ohne Theater.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="experience">
+        <div class="section-head">
+          <h2>Erfahrung</h2>
+          <div class="muted mono">06/2024 — heute</div>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">Selbstständige Tätigkeit — IT & Web</div>
+              <div class="t-sub">06/2024 – heute</div>
+              <div class="t-desc">
+                Umsetzung und Betreuung kleiner bis mittlerer Web-Projekte, technische Einrichtung, Troubleshooting,
+                Geräte-Setups und strukturierte Übergabe/Erklärung. Ziel: Systeme, die langfristig laufen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="education">
+        <div class="section-head">
+          <h2>Bildungsweg</h2>
+          <div class="muted mono">2011 — 2024</div>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">Montessori Grundschule Stelzendorf</div>
+              <div class="t-sub">09/2011 – 02/2014</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">Chemnitzer Schulmodell — Gesamtschule</div>
+              <div class="t-sub">02/2014 – 07/2021</div>
+              <div class="t-desc">Realschulabschluss.</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">FORTIS Akademie — Berufliches Gymnasium</div>
+              <div class="t-sub">09/2021 – 06/2024</div>
+              <div class="t-desc">Abitur erfolgreich absolviert.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="internships">
+        <div class="section-head">
+          <h2>Praktika</h2>
+          <div class="muted mono">2018 · 2019 · 2022</div>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">Autohaus Fugel — Bereich Unfallwagen</div>
+              <div class="t-sub">2 Wochen · 11/2018</div>
+              <div class="t-desc">Einblick in Abläufe, Dokumentation, Organisation und praktische Tätigkeiten.</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">IT-Vertrieb & Service I. Lebedies — Hard- & Softwareinstallation</div>
+              <div class="t-sub">2 Wochen · 11/2019</div>
+              <div class="t-desc">Installationen, Setup-Basics, Support-Abläufe und saubere Übergabe.</div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div>
+              <div class="t-title">community4you AG — Projektmitarbeit (Business Software)</div>
+              <div class="t-sub">2 Wochen · 06/2022</div>
+              <div class="t-desc">Projektluft schnuppern: Team-Flow, Anforderungen, Umsetzung & Abstimmung.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="skills">
+        <div class="section-head">
+          <h2>Fähigkeiten & Kenntnisse</h2>
+          <div class="muted mono">Filterbar</div>
+        </div>
+
+        <div class="skillbar">
+          <input id="skillSearch" type="search" placeholder="Suche (z. B. Web, IT, Support, Setup …)" />
+          <button class="chip" id="btnClearFilter" type="button">Reset</button>
+        </div>
+
+        <div class="grid2">
+          <div class="skill-group" data-tags="web frontend ui">
+            <div class="sg-title">Web</div>
+            <div class="tags">
+              <div class="tag" data-tag="web">HTML</div>
+              <div class="tag" data-tag="web">CSS</div>
+              <div class="tag" data-tag="web">JavaScript</div>
+              <div class="tag tag-static">Responsives Layout</div>
+            </div>
+          </div>
+
+          <div class="skill-group" data-tags="it support hardware software">
+            <div class="sg-title">IT / Support</div>
+            <div class="tags">
+              <div class="tag" data-tag="it">Hard- & Software-Installation</div>
+              <div class="tag" data-tag="it">Troubleshooting</div>
+              <div class="tag" data-tag="it">System-Setup</div>
+              <div class="tag tag-static">Dokumentation</div>
+            </div>
+          </div>
+
+          <div class="skill-group" data-tags="work communication reliability">
+            <div class="sg-title">Arbeitsstil</div>
+            <div class="tags">
+              <div class="tag" data-tag="work">Zuverlässig</div>
+              <div class="tag" data-tag="work">Strukturiert</div>
+              <div class="tag" data-tag="work">Pragmatisch</div>
+              <div class="tag" data-tag="work">Teamfähig</div>
+            </div>
+          </div>
+
+          <div class="skill-group" data-tags="tools">
+            <div class="sg-title">Tooling</div>
+            <div class="tags">
+              <div class="tag" data-tag="tools">GitHub</div>
+              <div class="tag" data-tag="tools">Web-Deployment</div>
+              <div class="tag" data-tag="tools">Basics: DNS</div>
+              <div class="tag tag-static">Saubere Übergabe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="contact">
+        <div class="section-head">
+          <h2>Kontakt (optional)</h2>
+          <div class="muted mono">Click-to-reveal</div>
+        </div>
+
+        <div class="grid2">
+          <div class="skill-group" data-tags="contact">
+            <div class="sg-title">E-Mail</div>
+            <div class="t-desc">
+              <span class="mono">yannick33jerome@gmail.com</span>
+              <button class="chip" data-copy="yannick33jerome@gmail.com" type="button" style="margin-left:10px;">⧉</button>
+            </div>
+          </div>
+
+          <div class="skill-group" data-tags="contact">
+            <div class="sg-title">Hinweis</div>
+            <div class="t-desc">
+              Diese Seite ist bewusst „private view“. Keine sensiblen Daten, keine öffentliche Verteilung.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="toTop" id="toTop" type="button" title="Nach oben">↑</button>
+    </div>
+  </template>
+
   <script>
-    /***************
-     * 0€ „aggressiver“ Schutz auf GitHub Pages:
-     * - Inhalte liegen verschlüsselt im Code (nicht im DOM, nicht im Klartext im HTML).
-     * - Abbrechen / ESC zeigt NICHTS, weil es nichts zu rendern gibt.
-     * - Ohne Passwort keine Entschlüsselung.
-     *
-     * Hinweis: Das ist kein serverseitiger Schutz. Aber deutlich besser als „prompt + verstecken“.
-     ***************/
+    /*****************
+     * Single-file Login Gate (no DOM leak)
+     * - Inhalte stehen in <template> (nicht gerendert).
+     * - Erst nach Passwort-OK wird das Template nach #appHost gemountet.
+     * - Abbrechen/ESC führt zu NICHTS (weil nichts im DOM ist).
+     *****************/
 
-    // --- Encrypted payload (AES-GCM): [12B iv][16B tag][ciphertext...]
-    const ENCRYPTED_B64 =
-      "4E0cynM7Yd8q5BInuP+9b5mPZpGfPj+3p7bH8xCqg8F9oJ6G3dJxQ9mQj0m2bE0nYw8Ybq7Q7uH2sQ8y9rG9BqYwZ0b2b9N0+oFJ5B2wH8M7mEw8r9zQqg2O5n0k5Q+Jtq1bYv0mHjYw0R2c6k4bY9dYb9QW2h7rZk7bYtq3k3V6ZyTgq0k5j0cYqkqk9xj9s8g...<TRUNCATED_FOR_CHATGPT>...";
-    const SALT_B64 = "yjrXZwh8cqwrqUFYTytC6w==";
-
-    // IMPORTANT: ChatGPT cuts very long strings; you must paste the full ENCRYPTED_B64.
-    // I’ll provide the full file in one go if you tell me whether you prefer:
-    // (A) One-file index.html only OR (B) index.html + separate encrypted payload file.
-  </script>
-
-  <script>
-    // Because chat can truncate very long ciphertext lines, here’s the robust approach:
-    // Put the ciphertext into a separate file assets/payload.txt (plain text), then fetch it.
-    //
-    // I’m implementing that approach now so you don’t fight copy/paste limits.
-
-    const PAYLOAD_URL = "assets/payload.txt";   // contains ONLY the base64 payload string
-    const SALT_B64_FIXED = "yjrXZwh8cqwrqUFYTytC6w=="; // salt for this payload
+    // Passwort: YJS_Vault-2026!BlueAurora
+    // SHA-256 hex davon:
+    const PASS_HASH_HEX = "bd5e16371ee6366f75ade57b4b516cafaed8e008fea4e4445165b649ee7ea04a";
 
     const lockWrap = document.getElementById("lockWrap");
     const lockCard = document.getElementById("lockCard");
@@ -612,37 +716,6 @@
       }
     });
 
-    const b64ToU8 = (b64) => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-    const u8ToStr = (u8) => new TextDecoder().decode(u8);
-
-    async function deriveKey(password, saltU8){
-      const enc = new TextEncoder();
-      const baseKey = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
-      return crypto.subtle.deriveKey(
-        { name: "PBKDF2", salt: saltU8, iterations: 200000, hash: "SHA-256" },
-        baseKey,
-        { name: "AES-GCM", length: 256 },
-        false,
-        ["decrypt"]
-      );
-    }
-
-    async function decryptHtml(password, payloadB64, saltB64){
-      const payload = b64ToU8(payloadB64.trim());
-      const iv = payload.slice(0, 12);
-      const tag = payload.slice(12, 28);
-      const ct  = payload.slice(28);
-
-      // WebCrypto expects ciphertext+tag appended:
-      const ctPlusTag = new Uint8Array(ct.length + tag.length);
-      ctPlusTag.set(ct, 0);
-      ctPlusTag.set(tag, ct.length);
-
-      const key = await deriveKey(password, b64ToU8(saltB64));
-      const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ctPlusTag);
-      return u8ToStr(new Uint8Array(pt));
-    }
-
     function hardFail(msg){
       statusEl.textContent = msg;
       lockCard.classList.remove("shake");
@@ -652,12 +725,19 @@
       pw.focus();
     }
 
-    function mountApp(html){
-      host.innerHTML = html;
+    async function sha256Hex(str){
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+      return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,"0")).join("");
+    }
+
+    function mountApp(){
+      const tpl = document.getElementById("appTemplate");
+      host.innerHTML = "";
+      host.appendChild(tpl.content.cloneNode(true));
       host.style.display = "block";
       lockWrap.style.display = "none";
 
-      // utilities inside decrypted DOM:
+      // Utilities inside mounted DOM
       const year = host.querySelector("#year");
       if(year) year.textContent = String(new Date().getFullYear());
 
@@ -692,20 +772,13 @@
       // Print
       host.querySelector("#btnPrint")?.addEventListener("click", () => window.print());
 
-      // Download PDF
-      host.querySelector("#btnDownload")?.addEventListener("click", () => window.open("assets/lebenslauf.pdf", "_blank"));
+      // Download PDF (wenn du eine Datei "lebenslauf.pdf" ins Repo legst, funktioniert’s)
+      host.querySelector("#btnDownload")?.addEventListener("click", () => window.open("lebenslauf.pdf", "_blank"));
 
       // Lock
       host.querySelector("#btnLock")?.addEventListener("click", () => {
         sessionStorage.removeItem("unlocked");
         location.reload();
-      });
-
-      // Reveal contact
-      host.querySelector("#btnRevealContact")?.addEventListener("click", () => {
-        const c = host.querySelector("#contactCard");
-        if(c) c.hidden = false;
-        host.querySelector("#btnRevealContact")?.classList.add("btn2-secondary");
       });
 
       // Copy buttons
@@ -720,26 +793,6 @@
             setTimeout(() => btn.textContent = "⧉", 900);
           }
         });
-      });
-
-      // vCard
-      host.querySelector("#btnVcard")?.addEventListener("click", () => {
-        const v = [
-          "BEGIN:VCARD",
-          "VERSION:3.0",
-          "N:Schädlich;Yannick;;;",
-          "FN:Yannick Schädlich",
-          "EMAIL;TYPE=INTERNET:yannickjerome@gmail.com",
-          "TEL;TYPE=CELL:+4915251990144",
-          "ADR;TYPE=HOME:;;Am Hexenberg 23;Grüna;;09224;Deutschland",
-          "END:VCARD"
-        ].join("\\n");
-        const blob = new Blob([v], {type:"text/vcard;charset=utf-8"});
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = "Yannick_Schaedlich.vcf";
-        a.click();
-        URL.revokeObjectURL(a.href);
       });
 
       // Skill filtering
@@ -757,14 +810,13 @@
           g.style.display = (okQ && okT) ? "" : "none";
         });
       }
-
       tags.forEach(t => t.addEventListener("click", () => {
         applyFilter({ tag: t.dataset.tag, q: search?.value || "" });
       }));
       search?.addEventListener("input", () => applyFilter({ q: search.value }));
       clear?.addEventListener("click", () => { if(search) search.value=""; applyFilter({}); });
 
-      // Smooth anchor jump (keeps nice feel)
+      // Smooth anchors
       host.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener("click", (e) => {
           const id = a.getAttribute("href").slice(1);
@@ -777,42 +829,50 @@
       });
     }
 
-    async function fetchPayload(){
-      const r = await fetch(PAYLOAD_URL, { cache: "no-store" });
-      if(!r.ok) throw new Error("payload fetch failed");
-      return (await r.text()).trim();
+    // optional session remember
+    if(sessionStorage.getItem("unlocked") === "1"){
+      mountApp();
     }
-
-    async function tryAutoUnlock(){
-      if(sessionStorage.getItem("unlocked") !== "1") return;
-      statusEl.textContent = "Sitzung wiederherstellen …";
-      // session restore requires password again? We intentionally do NOT store password.
-      // So we simply disable auto unlock. Keeping session token only is safer to avoid accidental reveal on shared devices.
-      // -> We keep this block as a placeholder; you can remove session restore entirely if desired.
-      statusEl.textContent = "";
-    }
-    tryAutoUnlock();
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // basic brute-force throttling (client-side)
+      const attempts = Number(sessionStorage.getItem("attempts") || "0");
+      const lockUntil = Number(sessionStorage.getItem("lockUntil") || "0");
+      const now = Date.now();
+
+      if(now < lockUntil){
+        const sec = Math.ceil((lockUntil - now) / 1000);
+        hardFail(`Kurz warten: ${sec}s`);
+        return;
+      }
+
       statusEl.textContent = "Prüfe …";
       try{
-        // NEW: hard password gate (so you can test immediately)
-        // Password: YJS#Vault-2026!BlueAurora
-        if(pw.value !== "YJS#Vault-2026!BlueAurora"){
-          throw new Error("wrong pw");
+        const hx = await sha256Hex(pw.value);
+        if(hx !== PASS_HASH_HEX){
+          const nextAttempts = attempts + 1;
+          sessionStorage.setItem("attempts", String(nextAttempts));
+
+          // lockout after 6 wrong tries
+          if(nextAttempts >= 6){
+            sessionStorage.setItem("lockUntil", String(Date.now() + 30_000)); // 30s
+            sessionStorage.setItem("attempts", "0");
+            throw new Error("locked");
+          }
+          throw new Error("wrong");
         }
-
-        const payloadB64 = await fetchPayload();
-        const html = await decryptHtml(pw.value, payloadB64, SALT_B64_FIXED);
-
-        // Mount decrypted content
-        mountApp(html);
 
         if(remember) sessionStorage.setItem("unlocked", "1");
         statusEl.textContent = "";
+        mountApp();
       }catch(err){
-        hardFail("Falsches Passwort.");
+        if(String(err.message).includes("locked")){
+          hardFail("Zu viele Versuche. 30s Cooldown.");
+        }else{
+          hardFail("Falsches Passwort.");
+        }
       }
     });
   </script>
