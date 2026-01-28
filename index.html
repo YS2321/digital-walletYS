@@ -1,57 +1,116 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Yannick Jérôme – Digitales Wallet</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
-    header { border-bottom: 1px solid #ddd; margin-bottom: 30px; }
-    h1, h2 { font-weight: 600; }
-    ul.skills { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; }
-    ul.skills li { background: #f0f0f0; padding: 5px 10px; border-radius: 4px; }
-    section { margin-bottom: 20px; }
-    a { color: #0066cc; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<title>Yannick Schädlich – Digitales Wallet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Grundlayout */
+  body { margin:0; font-family:'Inter',sans-serif; background:#f4f6f8; color:#111; overflow-x:hidden; }
+  .container { max-width:1000px; margin:50px auto; padding:0 20px; }
+  header { text-align:center; margin-bottom:60px; opacity:0; transform:translateY(-20px); animation: fadeIn 1s forwards; }
+  h1 { font-size:3rem; color:#0d6efd; margin-bottom:5px; }
+  h2 { font-size:1.8rem; margin-top:50px; border-bottom:2px solid #0d6efd; display:inline-block; padding-bottom:5px; }
+  h3 { font-size:1.2rem; margin:5px 0; font-weight:600; color:#0a58ca; }
+  p, li { font-size:1rem; line-height:1.6; }
+  ul.skills { list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+  ul.skills li { background:#0d6efd; color:white; padding:6px 12px; border-radius:5px; transition: transform 0.3s; }
+  ul.skills li:hover { transform: scale(1.1); }
+  section { opacity:0; transform:translateY(20px); animation: fadeIn 1s forwards; margin-bottom:50px; }
+  a { color:#0d6efd; text-decoration:none; transition: color 0.3s; }
+  a:hover { color:#0a58ca; }
+  .download-btn { display:inline-block; margin-top:10px; padding:10px 20px; background:#0d6efd; color:white; border-radius:5px; transition: background 0.3s; }
+  .download-btn:hover { background:#0a58ca; }
+  li.timeline-item { margin-bottom:15px; }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    to { opacity:1; transform:translateY(0); }
+  }
+</style>
 </head>
 <body>
 
 <script>
-  // Einfaches Passwort: nur für kleine Hürde
+  // Einfacher Passwortschutz
   const password = prompt("Bitte Passwort eingeben:");
-  if(password !== "meinpasswort") { document.body.innerHTML = "<h2>Kein Zugriff</h2>"; }
+  if(password !== "meinpasswort") {
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Kein Zugriff</h2>";
+  }
 </script>
 
-<header>
-  <h1>Yannick Jérôme</h1>
-  <p>Digitales Profil / Wallet</p>
-</header>
+<div class="container">
 
-<section>
-  <h2>Über mich</h2>
-  <p>Kurzbeschreibung deiner Person, Interessen, Schwerpunkte.</p>
-</section>
+  <header>
+    <h1>Yannick Schädlich</h1>
+    <p>Digitales Profil / Portfolio</p>
+    <p>Geburtsdatum: 21.06.2005</p>
+  </header>
 
-<section>
-  <h2>Beruflicher Werdegang</h2>
-  <ul>
-    <li><strong>2023–heute:</strong> Position / Unternehmen</li>
-    <li><strong>2020–2023:</strong> Position / Unternehmen</li>
-  </ul>
-</section>
+  <!-- Bildung -->
+  <section style="animation-delay:0.5s;">
+    <h2>Bildungsweg</h2>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <h3>Montessori Grundschule Stelzendorf</h3>
+        <p>09/2011 - 02/2014</p>
+      </li>
+      <li class="timeline-item">
+        <h3>Chemnitzer Schulmodell - Gesamtschule</h3>
+        <p>02/2014 - 07/2021 | Realschulabschluss</p>
+      </li>
+      <li class="timeline-item">
+        <h3>FORTIS Akademie - Berufliches Gymnasium</h3>
+        <p>09/2021 – 06/2024 | Abitur erfolgreich absolviert</p>
+      </li>
+      <li class="timeline-item">
+        <h3>Selbstständige Tätigkeit im Bereich IT & Web</h3>
+        <p>06/2024 – heute</p>
+      </li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Skills</h2>
-  <ul class="skills">
-    <li>Strategie</li>
-    <li>Technologie</li>
-    <li>Kommunikation</li>
-  </ul>
-</section>
+  <!-- Praktika -->
+  <section style="animation-delay:1s;">
+    <h2>Praktika</h2>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <h3>Autohaus Fugel – Bereich Unfallwagen</h3>
+        <p>2-wöchiges Praktikum | 11/2018</p>
+      </li>
+      <li class="timeline-item">
+        <h3>IT-Vertrieb & Service I. Lebedies – Hard- & Softwareinstallation</h3>
+        <p>2-wöchiges Praktikum | 11/2019</p>
+      </li>
+      <li class="timeline-item">
+        <h3>community4you AG – Projektmitarbeit Business Softwarehersteller</h3>
+        <p>2-wöchiges Praktikum | 06/2022</p>
+      </li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Downloads</h2>
-  <a href="lebenslauf.pdf" target="_blank">Lebenslauf (PDF)</a>
-</section>
+  <!-- Fähigkeiten -->
+  <section style="animation-delay:1.5s;">
+    <h2>Fähigkeiten & Kenntnisse</h2>
+    <ul class="skills">
+      <li>IT & Webentwicklung</li>
+      <li>Projektmanagement</li>
+      <li>Hardwareinstallation</li>
+      <li>Softwarekenntnisse</li>
+      <li>Kommunikation</li>
+      <li>Teamarbeit</li>
+    </ul>
+  </section>
+
+  <!-- Downloads -->
+  <section style="animation-delay:2s;">
+    <h2>Downloads</h2>
+    <a href="lebenslauf.pdf" target="_blank" class="download-btn">Lebenslauf (PDF)</a>
+  </section>
+
+</div>
 
 </body>
 </html>
