@@ -797,6 +797,12 @@
       e.preventDefault();
       statusEl.textContent = "Prüfe …";
       try{
+        // NEW: hard password gate (so you can test immediately)
+        // Password: YJS#Vault-2026!BlueAurora
+        if(pw.value !== "YJS#Vault-2026!BlueAurora"){
+          throw new Error("wrong pw");
+        }
+
         const payloadB64 = await fetchPayload();
         const html = await decryptHtml(pw.value, payloadB64, SALT_B64_FIXED);
 
