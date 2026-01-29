@@ -547,6 +547,13 @@
       filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
       transform: translate3d(0,-20px,0);
     }
+    .skull--red{
+      text-shadow:
+        0 0 12px rgba(255,69,58,.85),
+        0 0 24px rgba(255,69,58,.55),
+        0 10px 22px rgba(0,0,0,.35);
+      filter: drop-shadow(0 10px 24px rgba(255,69,58,.45));
+    }
     @keyframes skullFall{
       to{ transform: translate3d(0,110vh,0) rotate(18deg); opacity:.0; }
     }
@@ -575,6 +582,27 @@
       border-radius: 999px;
       transition: width .35s ease;
     }
+    .warning-signs{
+      display:none;
+      justify-content:center;
+      gap:10px;
+      margin-top:12px;
+      font-size: 32px;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 12px rgba(255,69,58,.85),
+        0 0 24px rgba(255,69,58,.55);
+    }
+    .warning-signs span{
+      transform: rotate(-6deg);
+      animation: warnPulse .9s ease-in-out infinite alternate;
+    }
+    .warning-signs span:nth-child(2){ transform: rotate(4deg); animation-delay: .15s; }
+    .warning-signs span:nth-child(3){ transform: rotate(-2deg); animation-delay: .3s; }
+    @keyframes warnPulse{
+      from{ transform: translateY(0) scale(1); }
+      to{ transform: translateY(-4px) scale(1.08); }
+    }
 
     @media print{
       .topbar, .toTop, .chip, #btnLock { display:none !important; }
@@ -594,14 +622,14 @@
         <div>
           <p class="lock-title">Zugangscode erforderlich</p>
           <p class="lock-sub">
-            Nur ein kleiner „Handshake“. Keine Panik: hier steht nichts offen rum — erst nach korrekt(er) Eingabe wird überhaupt irgendwas sichtbar.
+            Nur ein kleiner „Handshake“. Keine Panik: hier steht nichts offen rum - erst nach korrekt(er) Eingabe wird überhaupt irgendwas sichtbar.
           </p>
 
           <div class="teaser">
             <div class="dot"></div>
             <p>
               Pro-Tipp für Kenner: <span class="kbd">Enter</span> öffnet. <span class="kbd">Esc</span> macht genau… nichts.
-              Und ja: Rateversuche werden <span class="mono">sehr</span> unromantisch behandelt.
+              Und ja: Rateversuche bekommen hier eine ziemlich dramatische Show.
             </p>
           </div>
         </div>
@@ -623,12 +651,12 @@
           </div>
 
           <div id="lockoutBox" style="display:none;"></div>
+          <div id="warningSigns" class="warning-signs" aria-live="polite"></div>
         </form>
       </div>
 
       <div class="hint">
-        Kleiner Reality-Check: Das ist eine clientseitige Hürde (0€ Setup). Für „wirklich“ serverseitig bräuchte man Infrastruktur.
-        Für den privaten Use-Case: stabil genug, solange man keine hochsensiblen Daten reinpackt.
+        Kleine private Bühne. Hier gibt es nur dich, den Code - und eine Prise Drama, falls der Code nicht passt.
       </div>
     </div>
   </div>
@@ -657,9 +685,9 @@
         <div class="hero-left reveal">
           <h1>Private Vault.</h1>
           <p class="lead">
-            Hi, ich bin Yannick. Ich baue und betreue Web- und IT-Setups, die nicht nach „Schnell zusammengeklickt“ aussehen –
-            sondern nach „läuft, bleibt laufen, versteht man“. Seit <strong>01/2024</strong> selbstständig im Bereich <strong>IT & Web</strong>.
-            Wenn’s technisch wird, bleibe ich entspannt. Wenn’s unübersichtlich wird, mache ich’s übersichtlich.
+            Hi, ich bin Yannick. Ich baue Web- und IT-Setups, die sauber aussehen, sauber laufen und sauber übergeben werden.
+            Seit <strong>01/2024</strong> bin ich im Bereich <strong>IT & Web</strong> selbstständig unterwegs - zuverlässig, lösungsorientiert,
+            und ohne Drama im Alltag. Wenn’s chaotisch wird, bringe ich Ordnung rein.
           </p>
 
           <div class="hero-actions">
@@ -671,11 +699,11 @@
           <div class="meta-grid">
             <div class="meta-card">
               <div class="meta-k">Fokus</div>
-              <div class="meta-v">Web, Deployment, Support</div>
+              <div class="meta-v">Websites, Setups, Support</div>
             </div>
             <div class="meta-card">
               <div class="meta-k">Interessen</div>
-              <div class="meta-v">E-Commerce · BMW</div>
+              <div class="meta-v">E-Commerce · Performance · BMW</div>
             </div>
             <div class="meta-card">
               <div class="meta-k">Version</div>
@@ -688,21 +716,21 @@
           <div class="skill-group" data-tags="snapshot">
             <div class="sg-title">Kurzprofil</div>
             <div class="tags">
-              <div class="tag tag-static">Saubere Umsetzung</div>
+              <div class="tag tag-static">Klarer Aufbau</div>
               <div class="tag tag-static">Pragmatische Lösungen</div>
-              <div class="tag tag-static">Dokumentation</div>
-              <div class="tag tag-static">Übergabe ohne Nebel</div>
+              <div class="tag tag-static">Saubere Dokumentation</div>
+              <div class="tag tag-static">Übergabe ohne Fragezeichen</div>
             </div>
             <div class="t-desc" style="margin-top:10px">
-              Ich mag Dinge, die klar sind: klare Struktur, klare Kommunikation, klare Ergebnisse.
-              Und ja: ich habe eine Schwäche für gut gemachte Interfaces – und für BMWs, die man auch wirklich fährt.
+              Ich mag klare Abläufe, ehrliche Kommunikation und Ergebnisse, die man auch später noch versteht.
+              Dazu eine Schwäche für gutes UI - und für BMWs, die man wirklich fährt.
             </div>
           </div>
 
           <div class="skill-group" style="margin-top:12px" data-tags="style">
             <div class="sg-title">Arbeitsmodus</div>
             <div class="t-desc">
-              Schnell starten, sauber landen. Lieber 80% gut + iterieren, als 100% „perfekt“ in drei Monaten.
+              Schnell starten, sauber landen. Lieber 80 Prozent gut und iterieren, als 100 Prozent „perfekt“ in drei Monaten.
               Wenn’s kritisch ist: transparent. Wenn’s läuft: unauffällig.
             </div>
           </div>
@@ -719,11 +747,11 @@
           <div class="t-item">
             <div class="t-dot"></div>
             <div>
-              <div class="t-title">IT & Web — selbstständig</div>
+              <div class="t-title">IT & Web - selbstständig</div>
               <div class="t-sub">Umsetzung · Setup · Support</div>
               <div class="t-desc">
-                Webseiten/Frontends, kleine Tools, technische Einrichtung, Troubleshooting und „es muss einfach funktionieren“-Themen.
-                Besonders gern: Projekte, bei denen Struktur fehlt – weil Struktur am Ende Zeit spart (und Nerven).
+                Webseiten, kleine Tools, technische Einrichtung, Troubleshooting und alles, was einfach laufen soll.
+                Besonders gern: Projekte, bei denen Struktur fehlt - weil Struktur am Ende Zeit spart (und Nerven).
               </div>
               <span class="pill">Ship fast · stay clean</span>
             </div>
@@ -736,7 +764,7 @@
               <div class="t-sub">Shop-Denke · Conversion · Automatisierung</div>
               <div class="t-desc">
                 Ich feiere, wenn Technik Umsatz nicht bremst: klare Produktseiten, saubere Funnels, Performance und brauchbares Tracking
-                (ohne Chaos). Ich denke gern „shop first“: Was hilft wirklich dem Nutzer – und was bringt messbar was?
+                (ohne Chaos). Ich denke gern „shop first“: Was hilft wirklich dem Nutzer - und was bringt messbar was?
               </div>
             </div>
           </div>
@@ -746,7 +774,7 @@
       <div class="section reveal" id="path">
         <div class="section-head">
           <h2>Weg</h2>
-          <div class="muted mono">2011 — heute</div>
+          <div class="muted mono">2011 - heute</div>
         </div>
 
         <div class="timeline">
@@ -761,7 +789,7 @@
           <div class="t-item">
             <div class="t-dot"></div>
             <div>
-              <div class="t-title">Chemnitzer Schulmodell — Gesamtschule</div>
+              <div class="t-title">Chemnitzer Schulmodell - Gesamtschule</div>
               <div class="t-sub">02/2014 – 07/2021</div>
               <div class="t-desc">Realschulabschluss.</div>
             </div>
@@ -770,7 +798,7 @@
           <div class="t-item">
             <div class="t-dot"></div>
             <div>
-              <div class="t-title">FORTIS Akademie — Berufliches Gymnasium</div>
+              <div class="t-title">FORTIS Akademie - Berufliches Gymnasium</div>
               <div class="t-sub">09/2021 – 06/2024</div>
               <div class="t-desc">Abitur erfolgreich absolviert.</div>
             </div>
@@ -954,6 +982,7 @@
     const host = document.getElementById("appHost");
     const skullLayer = document.getElementById("skullLayer");
     const lockoutBox = document.getElementById("lockoutBox");
+    const warningSigns = document.getElementById("warningSigns");
 
     const rememberRow = document.getElementById("rememberRow");
     const rememberToggle = document.getElementById("rememberToggle");
@@ -1073,11 +1102,15 @@
     }
 
     function spawnSkulls(intensity){
-      const count = Math.min(28, 10 + intensity * 6);
+      const count = Math.min(36, 12 + intensity * 8);
       for(let i=0;i<count;i++){
         const s = document.createElement("div");
-        s.className = "skull";
-        s.textContent = Math.random() > 0.35 ? "💀" : "☠️";
+        const redChance = Math.min(0.85, 0.35 + intensity * 0.12);
+        const isRed = Math.random() < redChance;
+        s.className = `skull${isRed ? " skull--red" : ""}`;
+        s.textContent = isRed
+          ? (Math.random() > 0.5 ? "💀" : "☠️")
+          : (Math.random() > 0.5 ? "💀" : "👻");
         const left = Math.random() * 100;
         const dur = 1.6 + Math.random() * 1.8;
         const delay = Math.random() * 0.25;
@@ -1090,6 +1123,21 @@
         skullLayer.appendChild(s);
         setTimeout(() => s.remove(), (dur + delay + .2) * 1000);
       }
+    }
+
+    function updateWarnings(attempts){
+      if(!warningSigns) return;
+      if(attempts >= 3 && attempts < 5){
+        warningSigns.style.display = "flex";
+        warningSigns.innerHTML = `
+          <span>🛑</span>
+          <span>🛑</span>
+          <span>🛑</span>
+        `;
+        return;
+      }
+      warningSigns.style.display = "none";
+      warningSigns.innerHTML = "";
     }
 
     function lockoutUI(untilTs){
@@ -1125,6 +1173,7 @@
         statusEl.className = "status-bad";
         statusEl.textContent = "Gesperrt.";
         lockoutUI(untilTs);
+        updateWarnings(0);
         return true;
       }
       lockoutBox.style.display = "none";
@@ -1155,6 +1204,7 @@
     }
 
     checkLockout();
+    updateWarnings(getAttempts());
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -1174,9 +1224,8 @@
           const nextAttempts = attempts + 1;
           setAttempts(nextAttempts);
 
-          if(nextAttempts >= 3){
-            spawnSkulls(Math.min(4, nextAttempts - 2));
-          }
+          spawnSkulls(Math.min(4, nextAttempts));
+          updateWarnings(nextAttempts);
 
           if(nextAttempts >= 5){
             setLockUntil(nowMs() + 60 * 60 * 1000);
@@ -1187,7 +1236,10 @@
           }
 
           const left = Math.max(0, 5 - nextAttempts);
-          hardFail(`Falscher Code. Noch ${left} Versuch(e) bis Lockdown.`, nextAttempts >= 3 ? "status-warn" : "status-bad");
+          hardFail(
+            `Falscher Code. Noch ${left} Versuch(e) bis Lockdown.`,
+            nextAttempts >= 3 ? "status-bad" : "status-warn"
+          );
           return;
         }
 
@@ -1195,6 +1247,7 @@
         statusEl.className = "status-ok";
         statusEl.textContent = "Willkommen.";
         setAttempts(0);
+        updateWarnings(0);
 
         setTimeout(() => mountApp(), 180);
       }catch{
