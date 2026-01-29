@@ -411,6 +411,52 @@
     .grid2{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     @media (max-width: 820px){ .grid2{ grid-template-columns: 1fr; } }
 
+       .linkedin-card{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .linkedin-cover{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(120% 120% at 10% 10%, rgba(10,132,255,.18), transparent 55%),
+        rgba(255,255,255,.45);
+    }
+    @media (prefers-color-scheme: dark){
+      .linkedin-cover{ background: rgba(255,255,255,.06); }
+    }
+    .linkedin-avatar{
+      width:46px; height:46px; border-radius:14px;
+      background:
+        radial-gradient(140% 140% at 25% 15%, rgba(255,255,255,.55), transparent 45%),
+        linear-gradient(145deg, rgba(10,132,255,.95), rgba(106,92,255,.88));
+      display:grid; place-items:center;
+      color:#fff; font-weight:900; letter-spacing:.2px;
+      box-shadow: 0 14px 32px rgba(10,132,255,.22);
+      flex: 0 0 auto;
+    }
+    .linkedin-name{ font-weight:900; letter-spacing:.2px; }
+    .linkedin-sub{ color:var(--muted); font-size:12.5px; margin-top:4px; }
+    .linkedin-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .linkedin-icon{
+      width:38px; height:38px;
+      display:grid; place-items:center;
+      font-weight:900;
+      font-size:14px;
+      border-radius:12px;
+      padding:0;
+    }
+    
     .skillbar{
       display:flex; gap:10px; align-items:center; flex-wrap:wrap;
       margin-bottom: 12px;
@@ -954,6 +1000,24 @@
             </div>
           </div>
 
+           <div class="skill-group linkedin-card" data-tags="contact">
+            <div class="sg-title">LinkedIn</div>
+            <div class="linkedin-cover">
+              <div class="linkedin-avatar">YS</div>
+              <div>
+                <div class="linkedin-name">Yannick Schädlich</div>
+                <div class="linkedin-sub">IT & Web · Selbstständig</div>
+              </div>
+            </div>
+            <div class="t-desc">
+              Profil-Ausschnitt mit Fokus auf Web/IT-Projekte, klarer Kommunikation und sauberer Übergabe.
+            </div>
+            <div class="linkedin-actions">
+              <a class="btn2 btn2-primary linkedin-link" data-link="li" href="#" target="_blank" rel="noreferrer noopener">Profil öffnen</a>
+              <button class="chip linkedin-icon" data-link="li" type="button" aria-label="LinkedIn öffnen">in</button>
+            </div>
+          </div>
+          
           <div class="skill-group" data-tags="note">
             <div class="sg-title">Hinweis</div>
             <div class="t-desc">
@@ -1000,6 +1064,10 @@
     function setAttempts(n){ sessionStorage.setItem(SS_ATTEMPTS, String(n)); }
     function getAttempts(){ return Number(sessionStorage.getItem(SS_ATTEMPTS) || "0"); }
 
+    function decodeLink(encoded, key){
+      return encoded.map(n => String.fromCharCode(n ^ key)).join("");
+    }
+    
     function hardFail(msg, cls){
       statusEl.className = cls || "";
       statusEl.textContent = msg;
@@ -1076,6 +1144,13 @@
       const search = host.querySelector("#skillSearch");
       const clear = host.querySelector("#btnClearFilter");
 
+      const liEncoded = [127,99,99,103,100,45,56,56,96,96,96,57,123,126,121,124,114,115,126,121,57,116,120,122,56,126,121,56,110,118,121,121,126,116,124,58,100,116,127,50,84,36,50,86,35,115,123,126,116,127,58,35,32,46,46,39,32,36,34,46,40,98,99,122,72,100,120,98,101,116,114,42,100,127,118,101,114,49,98,99,122,72,116,118,122,103,118,126,112,121,42,100,127,118,101,114,72,97,126,118,49,98,99,122,72,116,120,121,99,114,121,99,42,103,101,120,113,126,123,114,49,98,99,122,72,122,114,115,126,98,122,42,118,121,115,101,120,126,115,72,118,103,103];
+      const liUrl = decodeLink(liEncoded, 23);
+      host.querySelectorAll("[data-link='li']").forEach(el => {
+        if(el.tagName === "A") el.setAttribute("href", liUrl);
+        if(el.tagName === "BUTTON") el.addEventListener("click", () => window.open(liUrl, "_blank", "noopener,noreferrer"));
+      });
+      
       function applyFilter({tag=null, q=""}){
         const qq = (q||"").trim().toLowerCase();
         groups.forEach(g => {
