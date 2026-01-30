@@ -269,6 +269,10 @@
       background: rgba(255,69,58,.18);
       border-color: rgba(255,69,58,.35);
     }
+    .idle-warning[data-level="final"]{
+      background: rgba(255,69,58,.18);
+      border-color: rgba(255,69,58,.35);
+    }
     .brand{ display:flex; align-items:center; gap:12px; min-width: 0; }
     .avatar{
       width:40px; height:40px; border-radius:16px;
@@ -615,11 +619,15 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
       display:block;
       transform: scale(1.02);
       transition: transform .6s ease;
       filter: saturate(1.05);
       animation: floatIn 8s ease-in-out infinite;
+    }
+    .photo-media img[data-photo="me-portrait"]{
+      object-position: center 18%;
     }
     .photo-card:hover .photo-media img{ transform: scale(1.07); }
     .photo-info{
@@ -651,6 +659,7 @@
       0%,100%{ transform: scale(1.02) translateY(0); }
       50%{ transform: scale(1.05) translateY(-6px); }
     }
+    
     
     .toTop{
       position: fixed;
@@ -824,15 +833,15 @@ Neugier erkannt. Zugriff verweigert.
           <button class="chip" id="btnLock" type="button">Lock</button>
         </div>
       </div>
-      <div class="idle-warning" id="idleWarning" role="status" aria-live="polite"></div>
+        <div class="idle-warning" id="idleWarning" role="status" aria-live="polite"></div>
       
       <div class="hero">
         <div class="hero-left reveal">
           <h1>Private Vault.</h1>
           <p class="lead">
-            Hi, ich bin Yannick. Ich baue Web- und IT-Setups, die sauber aussehen, sauber laufen und sauber übergeben werden.
-            Seit <strong>01/2024</strong> bin ich im Bereich <strong>IT & Web</strong> selbstständig unterwegs - zuverlässig, lösungsorientiert,
-            und ohne Drama im Alltag. Wenn’s chaotisch wird, bringe ich Ordnung rein.
+            Hi, ich bin Yannick. Seit <strong>01/2024</strong> bin ich im Bereich <strong>IT & Web</strong> selbstständig.
+            Ich baue zuverlässige Web- und IT-Setups, mag saubere Übergaben und arbeite strukturiert.
+            Meine Interessen: Technik, 3D‑Druck, PCs (Hard- & Software) und Programmieren.
           </p>
 
           <div class="hero-actions">
@@ -848,7 +857,7 @@ Neugier erkannt. Zugriff verweigert.
             </div>
             <div class="meta-card">
               <div class="meta-k">Interessen</div>
-              <div class="meta-v">E-Commerce · Performance · BMW</div>
+             <div class="meta-v">3D‑Druck · PCs · Coding · BMW</div>
             </div>
             <div class="meta-card">
               <div class="meta-k">Version</div>
@@ -1042,49 +1051,7 @@ Neugier erkannt. Zugriff verweigert.
         </div>
       </div>
 
-      <div class="section reveal" id="highlights">
-        <div class="section-head">
-          <h2>Highlights</h2>
-          <div class="muted mono">ohne Show, aber mit Substanz</div>
-        </div>
-
-        <div class="cards">
-          <div class="cardx">
-            <div class="img"></div>
-            <div class="body">
-              <div class="title">Saubere Setups</div>
-              <div class="text">
-                Ich mag Projekte, die nachher wartbar sind: klare Ordner, klare Übergabe, klare nächste Schritte.
-              </div>
-              <span class="pill">Maintenance-friendly</span>
-            </div>
-          </div>
-
-          <div class="cardx">
-            <div class="img"></div>
-            <div class="body">
-              <div class="title">UI, die nicht nervt</div>
-              <div class="text">
-                Weniger Krach, mehr Klarheit. Wenn’s sich „wie Apple“ anfühlen soll, dann meine ich: ruhig, präzise, smooth.
-              </div>
-              <span class="pill">Tasteful motion</span>
-            </div>
-          </div>
-
-          <div class="cardx">
-            <div class="img"></div>
-            <div class="body">
-              <div class="title">BMW-Nerd-Ecke</div>
-              <div class="text">
-                Ja, ich bin da anfällig. Wenn irgendwo ein sauberer M-Sound im Hintergrund läuft, arbeite ich nicht langsamer.
-              </div>
-              <span class="pill">Guilty pleasure</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-       <div class="section reveal" id="gallery">
+      <div class="section reveal" id="gallery">
         <div class="section-head">
           <h2>Galerie</h2>
           <div class="muted mono">persönliche Einblicke</div>
@@ -1093,12 +1060,23 @@ Neugier erkannt. Zugriff verweigert.
         <div class="photo-grid">
           <article class="photo-card">
             <div class="photo-media">
-              <img data-photo="car-day" alt="BMW im Tageslicht" loading="lazy" />
+              <img data-photo="me-portrait" alt="Portrait im Hemd mit Fliege" loading="lazy" />
             </div>
             <div class="photo-info">
-              <div class="photo-title">BMW · Tageslicht</div>
-              <div class="photo-text">Saubere Linien, dezenter Look – und trotzdem charakterstark.</div>
-              <span class="photo-badge">On the road</span>
+              <div class="photo-title">Über mich</div>
+              <div class="photo-text">Selbstständig in IT & Web · klare Kommunikation · sauberer Abschluss.</div>
+              <span class="photo-badge">Profil</span>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="car-day" alt="BMW G20 in Dravitgrau Metallic" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">BMW G20 · Dravitgrau</div>
+              <div class="photo-text">Vollausstattung, Individualfarbe und dezenter Look im Alltag.</div>
+              <span class="photo-badge">Daily</span>
             </div>
           </article>
 
@@ -1107,9 +1085,9 @@ Neugier erkannt. Zugriff verweigert.
               <img data-photo="car-night" alt="BMW bei Nacht an der Tankstelle" loading="lazy" />
             </div>
             <div class="photo-info">
-              <div class="photo-title">BMW · Night Drive</div>
-              <div class="photo-text">Nachtmodus, Lichtstimmung und ein Hauch von Neon.</div>
-              <span class="photo-badge">Night vibes</span>
+              <div class="photo-title">Night Drive</div>
+              <div class="photo-text">Abendstimmung, saubere Linien und viel Charakter.</div>
+              <span class="photo-badge">Night</span>
             </div>
           </article>
 
@@ -1118,9 +1096,9 @@ Neugier erkannt. Zugriff verweigert.
               <img data-photo="car-front" alt="BMW frontal bei Nacht" loading="lazy" />
             </div>
             <div class="photo-info">
-              <div class="photo-title">BMW · Front Shot</div>
-              <div class="photo-text">Frontansicht mit klarer Signatur – clean & smooth.</div>
-              <span class="photo-badge">Signature look</span>
+              <div class="photo-title">Front Shot</div>
+              <div class="photo-text">Markante Front, klare Signatur.</div>
+              <span class="photo-badge">Signature</span>
             </div>
           </article>
 
@@ -1130,10 +1108,12 @@ Neugier erkannt. Zugriff verweigert.
             </div>
             <div class="photo-info">
               <div class="photo-title">Erinnerung</div>
-              <div class="photo-text">Kleine Momente, die bleiben – mein persönlicher Antrieb.</div>
+              <div class="photo-text">Motivation, die bleibt – und der Fokus auf Weiterentwicklung.</div>
               <span class="photo-badge">Story</span>
             </div>
           </article>
+        </div>
+      </div>
 
           <article class="photo-card">
             <div class="photo-media">
@@ -1231,6 +1211,7 @@ Neugier erkannt. Zugriff verweigert.
       return encoded.map(n => String.fromCharCode(n ^ key)).join("");
     }
 
+   
     const IMG_PAYLOADS = {};
     let IMG_KEY = null;
     let IMG_READY = false;
@@ -1257,9 +1238,18 @@ Neugier erkannt. Zugriff verweigert.
     }
 
     const PLATE_MASKS = {
-      "car-day": [{ x: 0.73, y: 0.46, w: 0.18, h: 0.05, blur: 14 }],
-      "car-night": [{ x: 0.33, y: 0.58, w: 0.18, h: 0.05, blur: 16 }],
-      "car-front": [{ x: 0.42, y: 0.53, w: 0.16, h: 0.05, blur: 16 }]
+      "car-day": [
+        { x: 0.70, y: 0.44, w: 0.24, h: 0.07, blur: 18, pixelate: 10 },
+        { x: 0.67, y: 0.43, w: 0.28, h: 0.09, blur: 22, pixelate: 12 }
+      ],
+      "car-night": [
+        { x: 0.28, y: 0.56, w: 0.24, h: 0.08, blur: 18, pixelate: 10 },
+        { x: 0.25, y: 0.55, w: 0.30, h: 0.10, blur: 22, pixelate: 12 }
+      ],
+      "car-front": [
+        { x: 0.38, y: 0.51, w: 0.20, h: 0.08, blur: 18, pixelate: 10 },
+        { x: 0.35, y: 0.50, w: 0.26, h: 0.10, blur: 22, pixelate: 12 }
+      ]
     };
 
     function decodeImagePayload(payload, key){
@@ -1289,13 +1279,15 @@ Neugier erkannt. Zugriff verweigert.
 
       if(masks.length){
         const tmp = document.createElement("canvas");
+        const pixel = document.createElement("canvas");
         for(const mask of masks){
           const rect = {
             x: Math.round(mask.x * canvas.width),
             y: Math.round(mask.y * canvas.height),
             w: Math.round(mask.w * canvas.width),
             h: Math.round(mask.h * canvas.height),
-            blur: mask.blur || 14
+            blur: mask.blur || 14,
+            pixelate: mask.pixelate || 0
           };
           if(rect.w <= 0 || rect.h <= 0) continue;
           tmp.width = rect.w;
@@ -1308,6 +1300,22 @@ Neugier erkannt. Zugriff verweigert.
           ctx.filter = `blur(${rect.blur}px)`;
           ctx.drawImage(tmp, rect.x, rect.y, rect.w, rect.h);
           ctx.restore();
+
+          if(rect.pixelate){
+            const px = Math.max(1, Math.round(rect.w / rect.pixelate));
+            const py = Math.max(1, Math.round(rect.h / rect.pixelate));
+            pixel.width = px;
+            pixel.height = py;
+            const pctx = pixel.getContext("2d");
+            if(!pctx) continue;
+            pctx.imageSmoothingEnabled = false;
+            pctx.clearRect(0, 0, px, py);
+            pctx.drawImage(canvas, rect.x, rect.y, rect.w, rect.h, 0, 0, px, py);
+            ctx.save();
+            ctx.imageSmoothingEnabled = false;
+            ctx.drawImage(pixel, rect.x, rect.y, rect.w, rect.h);
+            ctx.restore();
+          }
         }
       }
 
@@ -1373,7 +1381,7 @@ Neugier erkannt. Zugriff verweigert.
         location.reload();
       });
 
-        const idleWarning = host.querySelector("#idleWarning");
+const idleWarning = host.querySelector("#idleWarning");
       const IDLE_LIMIT = 120000;
       const WARN_FIRST = 90000;
       const WARN_FINAL = 110000;
@@ -1416,6 +1424,7 @@ Neugier erkannt. Zugriff verweigert.
       ["mousemove","keydown","scroll","click","touchstart"].forEach(evt => {
         window.addEventListener(evt, resetIdleTimers, { passive:true });
       });
+
       
       host.querySelectorAll("[data-copy]").forEach(btn => {
         btn.addEventListener("click", async () => {
@@ -1453,6 +1462,7 @@ Neugier erkannt. Zugriff verweigert.
             const masks = PLATE_MASKS[key] || [];
             const url = await renderPhoto(payload, IMG_KEY, masks);
             img.src = url;
+            delete IMG_PAYLOADS[key];
           }catch(err){
             console.warn("Photo decode failed", err);
           }
