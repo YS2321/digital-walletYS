@@ -251,6 +251,24 @@
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
     }
+      .idle-warning{
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,159,10,.18);
+      color: var(--fg);
+      font-size: 13px;
+      font-weight: 800;
+      display:none;
+      box-shadow: 0 16px 40px rgba(0,0,0,.10);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    .idle-warning[data-level="final"]{
+      background: rgba(255,69,58,.18);
+      border-color: rgba(255,69,58,.35);
+    }
     .brand{ display:flex; align-items:center; gap:12px; min-width: 0; }
     .avatar{
       width:40px; height:40px; border-radius:16px;
@@ -555,6 +573,85 @@
       .pill{ background: rgba(255,255,255,.06); }
     }
 
+      .photo-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .photo-grid{ grid-template-columns: 1fr; } }
+    .photo-card{
+      border:1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.55);
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    @media (prefers-color-scheme: dark){
+      .photo-card{ background: rgba(255,255,255,.05); }
+    }
+    .photo-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 220px at 10% 0%, rgba(10,132,255,.14), transparent 62%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .photo-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+    }
+    .photo-media{
+      position:relative;
+      height: 220px;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background: rgba(255,255,255,.20);
+    }
+    .photo-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .6s ease;
+      filter: saturate(1.05);
+      animation: floatIn 8s ease-in-out infinite;
+    }
+    .photo-card:hover .photo-media img{ transform: scale(1.07); }
+    .photo-info{
+      padding: 16px;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .photo-title{ font-weight: 900; letter-spacing:.15px; }
+    .photo-text{ color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .photo-badge{
+      align-self:flex-start;
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--fg);
+      letter-spacing:.12px;
+    }
+    @media (prefers-color-scheme: dark){
+      .photo-badge{ background: rgba(255,255,255,.06); }
+    }
+    @keyframes floatIn{
+      0%,100%{ transform: scale(1.02) translateY(0); }
+      50%{ transform: scale(1.05) translateY(-6px); }
+    }
+    
     .toTop{
       position: fixed;
       right: 18px;
@@ -726,7 +823,8 @@
           <button class="chip" id="btnLock" type="button">Lock</button>
         </div>
       </div>
-
+      <div class="idle-warning" id="idleWarning" role="status" aria-live="polite"></div>
+      
       <div class="hero">
         <div class="hero-left reveal">
           <h1>Private Vault.</h1>
@@ -985,6 +1083,70 @@
         </div>
       </div>
 
+       <div class="section reveal" id="gallery">
+        <div class="section-head">
+          <h2>Galerie</h2>
+          <div class="muted mono">persönliche Einblicke</div>
+        </div>
+
+        <div class="photo-grid">
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="car-day" alt="BMW im Tageslicht" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">BMW · Tageslicht</div>
+              <div class="photo-text">Saubere Linien, dezenter Look – und trotzdem charakterstark.</div>
+              <span class="photo-badge">On the road</span>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="car-night" alt="BMW bei Nacht an der Tankstelle" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">BMW · Night Drive</div>
+              <div class="photo-text">Nachtmodus, Lichtstimmung und ein Hauch von Neon.</div>
+              <span class="photo-badge">Night vibes</span>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="car-front" alt="BMW frontal bei Nacht" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">BMW · Front Shot</div>
+              <div class="photo-text">Frontansicht mit klarer Signatur – clean & smooth.</div>
+              <span class="photo-badge">Signature look</span>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="me-young" alt="Kindheitserinnerung im Schnee" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">Erinnerung</div>
+              <div class="photo-text">Kleine Momente, die bleiben – mein persönlicher Antrieb.</div>
+              <span class="photo-badge">Story</span>
+            </div>
+          </article>
+
+          <article class="photo-card">
+            <div class="photo-media">
+              <img data-photo="me-portrait" alt="Portrait im Hemd mit Fliege" loading="lazy" />
+            </div>
+            <div class="photo-info">
+              <div class="photo-title">Über mich</div>
+              <div class="photo-text">Business-Style, klare Haltung und echte Motivation.</div>
+              <span class="photo-badge">About me</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
       <div class="section reveal" id="contact">
         <div class="section-head">
           <h2>Kontakt</h2>
@@ -1067,6 +1229,90 @@
     function decodeLink(encoded, key){
       return encoded.map(n => String.fromCharCode(n ^ key)).join("");
     }
+
+    const IMG_PAYLOADS = {};
+    let IMG_KEY = null;
+    let IMG_READY = false;
+
+    async function loadImagePayloads(){
+      if(IMG_READY) return;
+      try{
+        const res = await fetch("manifest.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("manifest fetch failed");
+        const data = await res.json();
+        IMG_KEY = data.key;
+        const files = Array.isArray(data.files) ? data.files : [];
+        await Promise.all(files.map(async (entry) => {
+          if(!entry?.file || !entry?.name) return;
+          const payloadRes = await fetch(entry.file, { cache: "no-store" });
+          if(!payloadRes.ok) throw new Error(`payload fetch failed: ${entry.file}`);
+          const payloadData = await payloadRes.json();
+          if(payloadData?.payload) IMG_PAYLOADS[entry.name] = payloadData.payload;
+        }));
+        IMG_READY = true;
+      }catch(err){
+        console.warn("Photo payload load failed", err);
+      }
+    }
+
+    const PLATE_MASKS = {
+      "car-day": [{ x: 0.73, y: 0.46, w: 0.18, h: 0.05, blur: 14 }],
+      "car-night": [{ x: 0.33, y: 0.58, w: 0.18, h: 0.05, blur: 16 }],
+      "car-front": [{ x: 0.42, y: 0.53, w: 0.16, h: 0.05, blur: 16 }]
+    };
+
+    function decodeImagePayload(payload, key){
+      const bin = atob(payload);
+      const bytes = new Uint8Array(bin.length);
+      for(let i=0;i<bin.length;i++){ bytes[i] = bin.charCodeAt(i) ^ key; }
+      return bytes;
+    }
+
+    async function renderPhoto(payload, key, masks=[]){
+      const bytes = decodeImagePayload(payload, key);
+      const blob = new Blob([bytes], { type: "image/jpeg" });
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.decoding = "async";
+      img.src = url;
+      await img.decode();
+
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth || img.width;
+      canvas.height = img.naturalHeight || img.height;
+      const ctx = canvas.getContext("2d");
+      if(!ctx){
+        return url;
+      }
+      ctx.drawImage(img, 0, 0);
+
+      if(masks.length){
+        const tmp = document.createElement("canvas");
+        for(const mask of masks){
+          const rect = {
+            x: Math.round(mask.x * canvas.width),
+            y: Math.round(mask.y * canvas.height),
+            w: Math.round(mask.w * canvas.width),
+            h: Math.round(mask.h * canvas.height),
+            blur: mask.blur || 14
+          };
+          if(rect.w <= 0 || rect.h <= 0) continue;
+          tmp.width = rect.w;
+          tmp.height = rect.h;
+          const tctx = tmp.getContext("2d");
+          if(!tctx) continue;
+          tctx.clearRect(0, 0, rect.w, rect.h);
+          tctx.drawImage(canvas, rect.x, rect.y, rect.w, rect.h, 0, 0, rect.w, rect.h);
+          ctx.save();
+          ctx.filter = `blur(${rect.blur}px)`;
+          ctx.drawImage(tmp, rect.x, rect.y, rect.w, rect.h);
+          ctx.restore();
+        }
+      }
+
+      URL.revokeObjectURL(url);
+      return canvas.toDataURL("image/jpeg", 0.9);
+    }
     
     function hardFail(msg, cls){
       statusEl.className = cls || "";
@@ -1126,6 +1372,50 @@
         location.reload();
       });
 
+        const idleWarning = host.querySelector("#idleWarning");
+      const IDLE_LIMIT = 120000;
+      const WARN_FIRST = 90000;
+      const WARN_FINAL = 110000;
+      let idleTimer;
+      let warnTimer;
+      let finalTimer;
+
+      const showIdleWarning = (msg, level="warn") => {
+        if(!idleWarning) return;
+        idleWarning.textContent = msg;
+        idleWarning.dataset.level = level;
+        idleWarning.style.display = "block";
+      };
+      const clearIdleWarning = () => {
+        if(!idleWarning) return;
+        idleWarning.textContent = "";
+        idleWarning.style.display = "none";
+        idleWarning.removeAttribute("data-level");
+      };
+      const logoutIdle = () => {
+        showIdleWarning("Ausgeloggt wegen Inaktivität.", "final");
+        sessionStorage.removeItem(SS_UNLOCKED);
+        setTimeout(() => location.reload(), 800);
+      };
+      const resetIdleTimers = () => {
+        clearTimeout(idleTimer);
+        clearTimeout(warnTimer);
+        clearTimeout(finalTimer);
+        clearIdleWarning();
+        warnTimer = setTimeout(() => {
+          showIdleWarning("Noch 30 Sekunden bis zum automatischen Logout.", "warn");
+        }, WARN_FIRST);
+        finalTimer = setTimeout(() => {
+          showIdleWarning("Letzte Warnung: 10 Sekunden bis zum Logout.", "final");
+        }, WARN_FINAL);
+        idleTimer = setTimeout(logoutIdle, IDLE_LIMIT);
+      };
+
+      resetIdleTimers();
+      ["mousemove","keydown","scroll","click","touchstart"].forEach(evt => {
+        window.addEventListener(evt, resetIdleTimers, { passive:true });
+      });
+      
       host.querySelectorAll("[data-copy]").forEach(btn => {
         btn.addEventListener("click", async () => {
           try{
@@ -1150,6 +1440,24 @@
         if(el.tagName === "A") el.setAttribute("href", liUrl);
         if(el.tagName === "BUTTON") el.addEventListener("click", () => window.open(liUrl, "_blank", "noopener,noreferrer"));
       });
+
+      async function hydratePhotos(){
+        await loadImagePayloads();
+        if(!IMG_READY) return;
+        host.querySelectorAll("[data-photo]").forEach(async (img) => {
+          const key = img.getAttribute("data-photo");
+          const payload = IMG_PAYLOADS[key];
+          if(!payload || IMG_KEY === null) return;
+          try{
+            const masks = PLATE_MASKS[key] || [];
+            const url = await renderPhoto(payload, IMG_KEY, masks);
+            img.src = url;
+          }catch(err){
+            console.warn("Photo decode failed", err);
+          }
+        });
+      }
+      hydratePhotos();
       
       function applyFilter({tag=null, q=""}){
         const qq = (q||"").trim().toLowerCase();
